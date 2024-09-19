@@ -1,5 +1,6 @@
 {{ define "main" }}
-  <div class="flex items-center justify-center">
+  <div class="herox flex items-center justify-center">
+    <div class="mt-auto flex h-[75vh] flex-col items-center justify-center" style="background-color: aliceblue;"></div>
     <div class="mt-auto flex h-[75vh] flex-col items-center justify-center">
       {{/* Add image and site title */}}
       {{ $image := resources.GetMatch (print "**" .Site.Params.Author.image) }}
@@ -17,9 +18,9 @@
         </div>
       {{ end }}
 
-
       <h1 class="text-center text-4xl font-extrabold text-slate-700 dark:text-slate-200">
-        {{ $name | markdownify | emojify }}
+        <!-- {{ $name | markdownify | emojify }} -->
+        <div style="display: inline;">Amerta</div> <div style="display: inline;">Virtual</div>
       </h1>
 
       {{ with .Site.Params.Author.greeting }}
@@ -45,4 +46,43 @@
       </div>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script>
+    anime.timeline({ loop: false })
+      .add({
+        targets: '.herox',
+        opacity: [0, 1],
+        translateY: [-20, 0],
+        duration: 1200,
+        easing: 'easeOutExpo',
+        delay: 300
+      })
+      .add({
+        targets: '.herox',
+        opacity: [0, 1],
+        scale: [0.8, 1],
+        duration: 1200,
+        easing: 'easeOutElastic',
+        delay: 100
+      })
+      .add({
+        targets: '.herox',
+        opacity: [0, 1],
+        translateY: [20, 0],
+        duration: 1200,
+        easing: 'easeOutExpo',
+        delay: 100
+      });
+
+    // Create gentle floating effect for the entire content
+    anime({
+      targets: '.profile-content',
+      translateY: [-5, 5],
+      direction: 'alternate',
+      easing: 'easeInOutSine',
+      duration: 3000,
+      loop: true
+    });
+  </script>
+
 {{ end }}
