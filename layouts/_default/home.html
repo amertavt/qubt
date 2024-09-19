@@ -10,8 +10,8 @@
         {{ $image = $image.Filter (images.Process "resize 288x288 Lanczos q100 webp" ) }}
         <div class="relative w-48">
           <span class="link_svg">
-            {{ $iconPath := resources.Get (print "icons/amerta.svg") }}
-              {{ $iconPath.Content | safeHTML }}
+            {{ $iconPath1 := resources.Get (print "icons/amerta.svg") }}
+              {{ $iconPath1.Content | safeHTML }}
             {{end}}
             </span>
           <!-- <img class="mb-2 h-48 w-48 rounded-full" width="192" height="192" alt="{{ $name | default "Author" }}" src="{{ $image.RelPermalink }}" />
