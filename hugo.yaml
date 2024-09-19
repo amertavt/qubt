@@ -26,7 +26,7 @@ markup:
     parser:
       attribute:
         block: true
-        title: true
+        title: false
   highlight:
     codeFences: true
     noHl: false
